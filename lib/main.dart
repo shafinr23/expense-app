@@ -23,7 +23,7 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           Container(
             width: double.infinity,
-            child: Card(
+            child: Card( 
               child: Text('chart!'),
               elevation: 5,
               color: Colors.blueAccent,
