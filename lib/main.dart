@@ -28,7 +28,6 @@ class MyHomePage extends StatelessWidget {
       amount: 10.30,
       date: DateTime.now(),
     ),
-
   ];
 
   @override
@@ -39,7 +38,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
             width: double.infinity,
@@ -49,9 +48,12 @@ class MyHomePage extends StatelessWidget {
               color: Colors.indigoAccent,
             ),
           ),
-          Card(
-            color: Colors.red,
-            child: Text('list of txc'),
+          Column(
+            children: transaction.map((tx) {
+              return Card(
+                child: Text(tx.title),
+              );
+            }).toList(),
           )
         ],
       ),
