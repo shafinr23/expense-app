@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './transaction.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -13,6 +15,22 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final List<Transaction> transaction = [
+    Transaction(
+      id: 't1',
+      title: 'bake',
+      amount: 90.30,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't9',
+      title: 'show',
+      amount: 10.30,
+      date: DateTime.now(),
+    ),
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +38,12 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           Container(
             width: double.infinity,
-            child: Card( 
+            child: Card(
               child: Text('chart!'),
               elevation: 5,
               color: Colors.indigoAccent,
