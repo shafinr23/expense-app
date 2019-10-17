@@ -19,13 +19,13 @@ class MyHomePage extends StatelessWidget {
     Transaction(
       id: 't1',
       title: 'bake',
-      amount: 90.30,
+      amount: 90.39,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't9',
       title: 'show',
-      amount: 10.30,
+      amount: 10.33,
       date: DateTime.now(),
     ),
   ];
@@ -54,24 +54,35 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-
                       margin:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 50),
                       decoration: BoxDecoration(
-                          border: Border.all(
-                        color: Colors.black,
-                        width: 2,
-                      ),
+                        border: Border.all(
+                          color: Colors.purple,
+                          width: 2,
+                        ),
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        tx.amount.toString(),
+                        '\$ ${tx.amount}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.purple,
+                        ),
                       ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(tx.title),
-                        Text(tx.date.toString())
+                        Text(tx.title,
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        textAlign: TextAlign.start,
+                        ),
+                        Text(tx.date.toString(),
+                        style: TextStyle(
+                          color: Colors.grey
+                        ),)
                       ],
                     ),
                   ],
