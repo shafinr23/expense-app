@@ -31,7 +31,8 @@ final amountController = TextEditingController();
       appBar: AppBar(
         title: Text('Flutter App'),
       ),
-      body: Column(
+      body: SingleChildScrollView(
+      child: Column(
         //mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -45,6 +46,7 @@ final amountController = TextEditingController();
           ),
          UserTransactions()
         ],
+      ),
       ),
     );
   }
