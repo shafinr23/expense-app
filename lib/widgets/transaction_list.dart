@@ -25,17 +25,17 @@ TransactionList(this.transactions);
                               EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Colors.purple,
+                              color: Theme.of(context).primaryColorLight,
                               width: 2,
                             ),
                           ),
                           padding: EdgeInsets.all(10),
                           child: Text(
-                            '\$ ${transactions[index].amount.toStringAsFixed(2)}',
+                            '\৳ ${transactions[index].amount.toStringAsFixed(2)}',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.purple,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),

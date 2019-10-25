@@ -23,9 +23,10 @@ if(enteredTitle.isEmpty || enteredAmount<=0){
 }
 
     widget.addTx(
-                      enteredTitle,
-                      enteredAmount,
-                      );
+      enteredTitle,
+      enteredAmount,
+     );
+    Navigator.of(context).pop();
   }
 
   @override
