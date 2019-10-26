@@ -14,18 +14,18 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final amountController = TextEditingController();
 
-  void submitData (){
+  void submitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
-if(enteredTitle.isEmpty || enteredAmount<=0){
-  return;
-}
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
 
     widget.addTx(
       enteredTitle,
       enteredAmount,
-     );
+    );
     Navigator.of(context).pop();
   }
 
@@ -41,7 +41,7 @@ if(enteredTitle.isEmpty || enteredAmount<=0){
             TextField(
               decoration: InputDecoration(labelText: 'title'),
               controller: titleController,
-               onSubmitted: (_)=>submitData(),
+              onSubmitted: (_) => submitData(),
               // onChanged: (value){
               //   titleInput = value;
               // },
@@ -50,13 +50,30 @@ if(enteredTitle.isEmpty || enteredAmount<=0){
               decoration: InputDecoration(labelText: 'amount'),
               controller: amountController,
               keyboardType: TextInputType.number,
-              onSubmitted: (_)=>submitData(),
+              onSubmitted: (_) => submitData(),
               // onChanged: (value) => amountInput = value,
             ),
-            FlatButton(
+            Container(
+              height: 70,
+              child: Row(
+                children: <Widget>[
+                  Text('No Date Chosen !'),
+                  FlatButton(
+                    textColor: Theme.of(context).primaryColor,
+                    child: Text(
+                      'choose Date',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            ),
+            RaisedButton(
               child: Text('add Trans'),
               onPressed: submitData,
-              textColor: Colors.purple,
+              color: Theme.of(context).primaryColor,
+              textColor: Theme.of(context).textTheme.button.color,
             )
           ],
         ),

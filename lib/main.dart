@@ -17,10 +17,15 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.amber,
           fontFamily: 'Quicksand',
           textTheme: ThemeData.light().textTheme.copyWith(
-                  title: TextStyle(
-                fontFamily: 'OpenSans',
-                fontSize: 18,
-              )),
+                title: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 18,
+                ),
+                button: TextStyle(
+                  color: Colors.white,
+                  
+                )
+              ),
           appBarTheme: AppBarTheme(
             textTheme: ThemeData.light().textTheme.copyWith(
                 title: TextStyle(
@@ -60,9 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return _userTransactions.where((tx) {
       return tx.date.isAfter(
         DateTime.now().subtract(
-        Duration(days: 7),
+          Duration(days: 7),
         ),
-        );
+      );
     }).toList();
   }
 
