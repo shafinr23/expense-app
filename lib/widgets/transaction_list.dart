@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart'; //for date  
 
 
 import '../models/transaction.dart';
@@ -32,11 +32,7 @@ TransactionList(this.transactions);
                           padding: EdgeInsets.all(10),
                           child: Text(
                             '\৳ ${transactions[index].amount.toStringAsFixed(2)}',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            style: Theme.of(context).textTheme.title,
                           ),
                         ),
                         Column(
@@ -44,8 +40,7 @@ TransactionList(this.transactions);
                           children: <Widget>[
                             Text(
                               transactions[index].title,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                              style: Theme.of(context).textTheme.title,
                               textAlign: TextAlign.start,
                             ),
                             Text(
