@@ -1,60 +1,74 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; //for date  
-
+import 'package:intl/intl.dart'; //for date
 
 import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
+  final List<Transaction> transactions;
 
-final List<Transaction> transactions;
+  TransactionList(this.transactions);
 
-TransactionList(this.transactions);
- 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      
-      child:  ListView.builder(
-              itemBuilder:(ctx,index){
-                  return Card(
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                          margin:
-                              EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context).primaryColorLight,
-                              width: 2,
-                            ),
+      child: transactions.isEmpty
+          ? Column(
+              children: <Widget>[
+                Text(
+                  'No Transaction added yeat  :) ',
+                  style: Theme.of(context).textTheme.title,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 200,
+                    child: Image.asset('assets/images/waiting.png',
+                        fit: BoxFit.cover)),
+              ],
+            )
+          : ListView.builder(
+              itemBuilder: (ctx, index) {
+                return Card(
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Theme.of(context).primaryColorLight,
+                            width: 2,
                           ),
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            '\৳ ${transactions[index].amount.toStringAsFixed(2)}',
+                        ),
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          '\৳ ${transactions[index].amount.toStringAsFixed(2)}',
+                          style: Theme.of(context).textTheme.title,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            transactions[index].title,
                             style: Theme.of(context).textTheme.title,
+                            textAlign: TextAlign.start,
                           ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              transactions[index].title,
-                              style: Theme.of(context).textTheme.title,
-                              textAlign: TextAlign.start,
-                            ),
-                            Text(
-                              DateFormat.yMMMEd().format(transactions[index].date),
-                              style: TextStyle(color: Colors.grey),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-              } ,
+                          Text(
+                            DateFormat.yMMMEd()
+                                .format(transactions[index].date),
+                            style: TextStyle(color: Colors.grey),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
               itemCount: transactions.length,
-              ),
+            ),
     );
   }
 }
