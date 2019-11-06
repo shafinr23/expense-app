@@ -7,7 +7,9 @@ import './chart_bar.dart';
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
 
-  Chart(this.recentTransactions);
+  Chart(this.recentTransactions){
+    print('constractor called ');
+  }
 
   List<Map<String, Object>> get groupTranactionValues {
     return List.generate(7, (index) {
@@ -37,6 +39,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('build() chart page');
     print(groupTranactionValues);
     return Container(
       padding: EdgeInsets.all(10),
